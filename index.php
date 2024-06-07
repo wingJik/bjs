@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML>
 <html>
-
+<?php session_start(); ?>
 	<head>
 		
 		<title>天道院系統有限公司</title>
@@ -22,7 +22,16 @@
 		<!-- Nav -->
 			<nav id="menu">
 				<ul class="links">
+					<?php
+					if(!empty($_SESSION["email"])){
+						echo'
+						<li><span>　　<a href="user/index.html">'.$_SESSION["email"].'</a>　|　<a href="user/out.php">登出</a></span></li>
+						'
+					;}else{
+					echo'
                     <li><span>　　<a href="user/index.html">註冊</a>　|　<a href="user/index.html">登入</a></span></li>
+					';}?>
+					
 					<li><a href="index.html">Home</a></li>
 					<li><a href="p1.html">關於我們</a></li>
                     <li><a href="a3.html">公司里程碑</a></li>
